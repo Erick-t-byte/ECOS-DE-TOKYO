@@ -1,0 +1,213 @@
+/* Reseteo básico y variables globales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-image: url('../IMAGENES/fondo_cat.png');
+    background-size: cover;
+    background-position: center;     
+    background-repeat: no-repeat;    
+    background-attachment: fixed;
+    color: #ffffff;
+    min-height: 100vh;
+    padding-bottom: 50px;
+}
+
+body.home-page {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 0;
+}
+
+body.home-page .content-container {
+    flex: 1 0 auto;
+}
+
+.nav-menu {
+    padding: 25px 0;
+    text-align: center;
+}
+
+.nav-menu ul {
+    list-style: none;
+    display: inline-flex;
+    gap: 30px;
+}
+
+.nav-menu a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    transition: color 0.3s;
+}
+
+.nav-menu a:hover {
+    color: #ff4a85;
+}
+
+.hero-section {
+    text-align: center;
+    padding: 20px 20px 40px 20px;
+}
+
+.hero-section h1 {
+    font-size: 3.5rem;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+    font-weight: 800;
+}
+
+.hero-section p {
+    font-size: 0.9rem;
+    color: #cccccc;
+    margin-bottom: 25px;
+}
+
+.search-container input {
+    width: 100%;
+    max-width: 650px;
+    background-color: rgba(0, 0, 0, 0.4);
+    border: 1px solid #444;
+    padding: 10px 15px;
+    color: white;
+    border-radius: 4px;
+}
+
+.content-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.grid-section {
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.grid-section h2 {
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+    color: #ffffff;
+}
+
+.carousel-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.carousel-title {
+    text-align: center;
+    font-size: 1.6rem;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+}
+
+/* Ventana contenedora que oculta lo que se sale de los bordes */
+.carousel-window {
+    width: 100%;
+    overflow: hidden;
+    padding: 10px 0;
+}
+
+/* Tira interna que contiene las tarjetas alineadas */
+.carousel-track {
+    display: flex;
+    gap: 20px;
+    width: max-content;
+}
+
+/* Pausa el movimiento cuando el usuario pasa el mouse por encima */
+.carousel-window:hover .carousel-track {
+    animation-play-state: paused;
+}
+
+/* Estructura unificada para todas las tarjetas (Artistas y Álbumes) */
+.card {
+    width: 220px; /* Ajustado ligeramente para dar mejor espacio a las portadas */
+    background-color: rgba(0, 0, 0, 0.4); /* Cuadro negro semitransparente como en tu interfaz */
+    border: 1px solid rgba(255, 255, 255, 0.15); /* Borde sutil */
+    border-radius: 20px; /* Esquinas redondeadas del contenedor */
+    padding: 15px;
+    text-align: center;
+    box-sizing: border-box;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* Diseño unificado para las imágenes dentro de los cuadros */
+.card img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 12px; /* Bordes internos suavizados para las fotos y portadas */
+    margin-bottom: 12px;
+}
+
+.card h3 {
+    font-size: 0.9rem;
+    margin: 5px 0 0 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.divider-line {
+    height: 4px;
+    width: 200px;
+    background: linear-gradient(90deg, #ff2a74, #ff7a00);
+    margin: 50px auto;
+    border-radius: 2px;
+}
+
+/* --- ANIMACIONES DE DESPLAZAMIENTO INFINITO --- */
+/* Cálculo para 6 tarjetas: (220px ancho + 20px espacio) * 6 = 1440px */
+.artists-animation {
+    animation: scrollLeft 25s linear infinite;
+}
+
+.albums-animation {
+    animation: scrollLeft 28s linear infinite;
+}
+
+@keyframes scrollLeft {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-1440px); 
+    }
+}
+
+/* Botones */
+.btn {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    font-weight: bold;
+    font-size: 0.85rem;
+    cursor: pointer;
+    margin-top: 10px;
+    letter-spacing: 1px;
+}
+
+.btn-primary {
+    background-color: #c2185b;
+    color: white;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: #c2185b;
+    border: 1px solid #c2185b;
+}
